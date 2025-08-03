@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="profile-container">
+    <div class="profile-dropdown" id="profileDropdown">
+      <a href="#">My Account</a>
+      <a href="#">My Listings</a>
+      <a href="#">Messages</a>
+      <hr>
+      <a href="#">Settings</a>
+      <a href="#">Help Center</a>
+      <hr>
+      <a href="#">Log Out</a>
+    </div>
+    <button class="profile-button" id="profileBtn">
+      <svg class="profile-icon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+      </svg>
+      <span>Profile</span>
+    </button>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1><b>CRAIGLIST PH</b></h1>   
+      <h2><a href="#">Post an Ad</a></h2>
+    </header>
+    <div class="search-box">
+      <input type="text" placeholder="search craigslist">
+    </div>
+
+    <h2 style="text-align: left;"><b>Event Calendar</b></h2>
+  <div class="calendar-container">
+    <div class="calendar">
+      <table>
+        <tr>
+          <th>S</th>
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>T</th>
+          <th>F</th>
+          <th>S</th>
+        </tr>
+        <tr>
+          <td><span class="calendar-day current-month"><a href="#" data-date="13">13</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="14">14</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="15">15</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="16">16</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="17">17</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="18">18</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="19">19</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="calendar-day current-month"><a href="#" data-date="20">20</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="21">21</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="22">22</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="23">23</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="24">24</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="25">25</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="26">26</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="calendar-day current-month"><a href="#" data-date="27">27</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="28">28</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="29">29</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="30">30</a></span></td>
+          <td><span class="calendar-day current-month"><a href="#" data-date="31">31</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="1">1</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="2">2</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="calendar-day other-month"><a href="#" data-date="3">3</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="4">4</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="5">5</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="6">6</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="7">7</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="8">8</a></span></td>
+          <td><span class="calendar-day other-month"><a href="#" data-date="9">9</a></span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="appointmentModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add Appointment for <span id="selectedDate"></span></h3>
+        <form class="appointment-form" id="appointmentForm">
+          <input type="text" id="appointmentTitle" placeholder="Appointment Title" required>
+          <textarea id="appointmentDetails" placeholder="Details" rows="4"></textarea>
+          <input type="time" id="appointmentTime" required>
+          <select id="appointmentType">
+            <option value="personal">Personal</option>
+            <option value="business">Business</option>
+            <option value="other">Other</option>
+          </select>
+          <button type="submit">Save Appointment</button>
+        </form>
+        <div class="appointment-list" id="appointmentList"></div>
+      </div>
+    </div>
+  
+    <div class="category-buttons">
+      <button class="category-btn" id="communityBtn">Community</button>
+      <button class="category-btn" id="housingBtn">Housing</button>
+      <button class="category-btn" id="jobsBtn">Jobs</button>
+      <button class="category-btn" id="servicesBtn">Services</button>
+      <button class="category-btn" id="forsaleBtn">For Sale</button>
+      <button class="category-btn" id="discussionBtn">Discussion forums</button>
+    </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">help</a> • 
+      <a href="#">faq</a> • 
+      <a href="#">abuse</a> • 
+      <a href="#">legal</a> • 
+      <a href="#">avoid scams & fraud</a> • 
+      <a href="#">personal safety tips</a><br>
+      <a href="#">about craigslist</a> • 
+      <a href="#">best-of-craigslist</a> • 
+      <a href="#">what's new</a> • 
+      <a href="#">system status</a><br>
+      <a href="#">craigslist charitable</a>
+    </div>
+
+    <div id="communityModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Community</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">Activities</a>
+          <a href="#">Artists</a>
+          <a href="#">Childcare</a>
+          <a href="#">Classes</a>
+          <a href="#">Events</a>
+          <a href="#">General</a>
+          <a href="#">Groups</a>
+          <a href="#">Local News</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="housingModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Housing</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">Apts / Housing</a>
+          <a href="#">Housing Swap</a>
+          <a href="#">Housing Wanted</a>
+          <a href="#">Office / Commercial</a>
+          <a href="#">Parking / Storage</a>
+          <a href="#">Real Estate for Sale</a>
+          <a href="#">Rooms / Shared</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="jobsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Jobs</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">Accounting/Finance</a>
+          <a href="#">Admin / Office</a>
+          <a href="#">Arch / Engineering</a>
+          <a href="#">Art / Media / Design</a>
+          <a href="#">Biotech / Science</a>
+          <a href="#">Business / Mgmt</a>
+          <a href="#">Customer Service</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="servicesModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Services</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">Automotive</a>
+          <a href="#">Beauty</a>
+          <a href="#">Cell/Mobile</a>
+          <a href="#">Computer</a>
+          <a href="#">Creative</a>
+          <a href="#">Event</a>
+          <a href="#">Financial</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="forsaleModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>For Sale</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">antiques</a>
+          <a href="#">appliances</a>
+          <a href="#">arts+crafts</a>
+          <a href="#">atv/utv/sno</a>
+          <a href="#">auto parts</a>
+          <a href="#">aviation</a>
+          <a href="#">baby+kid</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="discussionModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Discussion Forums</h2>
+        </div>
+        <div class="subcategory-list">
+          <a href="#">apple</a>
+          <a href="#">arts</a>
+          <a href="#">atheist</a>
+          <a href="#">autos</a>
+          <a href="#">beauty</a>
+          <a href="#">bikes</a>
+          <a href="#">celebs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="right-locations">  
+    <div class="city-selection"> 
+      <h2>Select Your Location</h2>
+      <div class="city-group">
+        <h4>Main Cities</h4>
+        <div class="city-list">
+          <div class="city-item">Manila</div>
+          <div class="city-item">Cebu</div>
+          <div class="city-item">Davao City</div>
+          <div class="city-item">Iloilo</div>
+          <div class="city-item">Pampanga</div>
+          <div class="city-item">Zamboanga</div>
+        </div>
+      </div>
+      
+      <div class="city-group">
+        <h4>Other Locations</h4>
+        <div class="city-list">
+          <div class="city-item">Bacolod</div>
+          <div class="city-item">Bicol Region</div>
+          <div class="city-item">Cagayan de Oro</div>
+          <div class="city-item selected">Philippines (All)</div>
+        </div>
+      </div>
+      
+      <div class="city-group">
+        <h4>International</h4>
+        <div class="city-list">
+          <div class="city-item">Asia/Pacific</div>
+          <div class="city-item">CL Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="Script.js"></script>
+</body>
+</html>
